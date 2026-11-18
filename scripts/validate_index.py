@@ -11,6 +11,8 @@ from pathlib import Path
 INDEX_PATH = Path(__file__).resolve().parent.parent / "index.json"
 ID_PATTERN = re.compile(r"^[a-z0-9_-]+$")
 REQUIRED_FIELDS = ("id", "name", "description", "author", "repo_url")
+PINNED_DOWNLOAD = re.compile(
+    r"^https://raw\.githubusercontent\.com/[\w.-]+/[\w.-]+/[0-9a-f]{40}/[\w./-]+\.py$")
 DISALLOWED_REPOS = (
     "github.com/biggy-spoon/sticky-assistant",
     "github.com/biggy-spoon/sticky-assistant-plugin-hub",
@@ -67,6 +69,22 @@ def main() -> None:
             return
         if any(disallowed in repo_url for disallowed in DISALLOWED_REPOS):
             fail(f"{where}: repo_url can't point at this hub or the main sticky-assistant repo")
+            return
+
+        # One-tap installs from the device: only maintainers set "reviewed",
+        # after reading the file at that exact commit, so the URL has to pin one.
+        reviewed = entry.get("reviewed")
+        download_url = entry.get("download_url")
+        if reviewed is not None and not isinstance(reviewed, bool):
+            fail(f"{where}: reviewed must be true or false")
+            return
+        if download_url is not None:
+            if not isinstance(download_url, str) or not PINNED_DOWNLOAD.match(download_url):
+                fail(f"{where}: download_url must be a raw.githubusercontent.com URL to one .py "
+                     "file at a full 40-character commit SHA")
+                return
+        if reviewed and download_url is None:
+            fail(f"{where}: a reviewed entry needs a download_url")
             return
 
         tags = entry.get("tags")

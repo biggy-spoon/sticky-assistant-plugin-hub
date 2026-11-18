@@ -41,6 +41,19 @@ as a starting point, whatever).
    code review — see [SECURITY.md](./SECURITY.md) for what that does and
    doesn't mean.
 
+## Installing from the device (reviewed entries)
+
+sticky-assistant can install a plugin from its settings page or the device
+itself, but only for entries marked `"reviewed": true`. Those also need a
+`download_url`: a raw.githubusercontent.com link to your plugin's single
+`.py` file **at a full commit SHA**, for example
+`https://raw.githubusercontent.com/you/sticky-assistant-plugin-x/3f2a…c9/x_plugin.py`.
+Pinning the commit means what was reviewed is exactly what gets installed.
+
+Leave `reviewed` out of your PR. A maintainer reads the file at that commit
+and, if it does what it says and nothing else, sets `reviewed` to `true`.
+Releasing a new version means a new PR with a new SHA, reviewed again.
+
 ## Updating or removing your listing
 
 Same process — a PR editing or deleting your entry. If your plugin repo
