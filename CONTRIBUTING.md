@@ -3,14 +3,14 @@
 This repo only holds `index.json` — a list of pointers to plugin repos.
 Your plugin's code lives in *your own* repo, published however you like
 (a solo repo, a fork of the
-[plugin template](https://github.com/biggy-spoon/sticky-claude/blob/master/backend/plugins/base.py)
+[plugin template](https://github.com/biggy-spoon/sticky-assistant/blob/master/backend/plugins/base.py)
 as a starting point, whatever).
 
 ## Before you submit
 
 1. **Write the plugin.** It needs to implement the `Plugin` contract in
-   [`backend/plugins/base.py`](https://github.com/biggy-spoon/sticky-claude/blob/master/backend/plugins/base.py)
-   of the main `sticky-claude` repo. `calendar_plugin.py` (settings +
+   [`backend/plugins/base.py`](https://github.com/biggy-spoon/sticky-assistant/blob/master/backend/plugins/base.py)
+   of the main `sticky-assistant` repo. `calendar_plugin.py` (settings +
    an external service) and `todo_plugin.py` (no settings, pure local
    state) are the two reference implementations — pick whichever is
    closer to your plugin's shape.
@@ -37,7 +37,7 @@ as a starting point, whatever).
    pattern, and `repo_url` points at a (reachable, public) GitHub repo.
 4. A maintainer merges once CI passes and the entry looks sane (right
    schema, plausible description, `repo_url` isn't this hub repo itself
-   or the main sticky-claude repo). This is a schema/sanity check, not a
+   or the main sticky-assistant repo). This is a schema/sanity check, not a
    code review — see [SECURITY.md](./SECURITY.md) for what that does and
    doesn't mean.
 

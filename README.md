@@ -1,12 +1,12 @@
-# sticky-claude-plugin-hub
+# sticky-assistant-plugin-hub
 
 A community-maintained index of third-party plugins for
-[sticky-claude](https://github.com/biggy-spoon/sticky-claude), a
+[sticky-assistant](https://github.com/biggy-spoon/sticky-assistant), a
 push-to-talk voice assistant for the Seeed Studio reTerminal Sticky.
 
 This repo is **metadata only** — a flat JSON list of plugins, where to
 find each one's source, and a short description. It doesn't host any
-plugin code itself, and the sticky-claude backend never fetches or runs
+plugin code itself, and the sticky-assistant backend never fetches or runs
 code from here automatically. The dashboard's "Plugin hub" card reads
 `index.json` to show what's available; installing one is still a manual
 step (see below), by design — see [SECURITY.md](./SECURITY.md).
@@ -38,7 +38,7 @@ step (see below), by design — see [SECURITY.md](./SECURITY.md).
     "name": "Weather",
     "description": "Ask for the current forecast by voice.",
     "author": "octocat",
-    "repo_url": "https://github.com/octocat/sticky-claude-plugin-weather",
+    "repo_url": "https://github.com/octocat/sticky-assistant-plugin-weather",
     "tags": ["weather"]
   }
 ]
@@ -57,7 +57,7 @@ step (see below), by design — see [SECURITY.md](./SECURITY.md).
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for the submission process, and
 the main repo's
-[`backend/plugins/base.py`](https://github.com/biggy-spoon/sticky-claude/blob/master/backend/plugins/base.py)
+[`backend/plugins/base.py`](https://github.com/biggy-spoon/sticky-assistant/blob/master/backend/plugins/base.py)
 for the `Plugin` contract your code needs to implement.
 `calendar_plugin.py` and `todo_plugin.py` in that same directory are the
 two reference implementations.
