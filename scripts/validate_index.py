@@ -12,8 +12,8 @@ INDEX_PATH = Path(__file__).resolve().parent.parent / "index.json"
 ID_PATTERN = re.compile(r"^[a-z0-9_-]+$")
 REQUIRED_FIELDS = ("id", "name", "description", "author", "repo_url")
 DISALLOWED_REPOS = (
-    "github.com/biggy-spoon/sticky-claude",
-    "github.com/biggy-spoon/sticky-claude-plugin-hub",
+    "github.com/biggy-spoon/sticky-assistant",
+    "github.com/biggy-spoon/sticky-assistant-plugin-hub",
 )
 
 
@@ -66,7 +66,7 @@ def main() -> None:
             fail(f"{where}: repo_url must be an https://github.com/... URL")
             return
         if any(disallowed in repo_url for disallowed in DISALLOWED_REPOS):
-            fail(f"{where}: repo_url can't point at this hub or the main sticky-claude repo")
+            fail(f"{where}: repo_url can't point at this hub or the main sticky-assistant repo")
             return
 
         tags = entry.get("tags")

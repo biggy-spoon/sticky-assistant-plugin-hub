@@ -19,7 +19,7 @@ more.
 
 ## Why installation is a manual copy, not a button
 
-The sticky-claude dashboard shows this index but never fetches, builds,
+The sticky-assistant dashboard shows this index but never fetches, builds,
 or executes a plugin's code on its own. Installing one means a human
 clones the repo into `backend/plugins/` and restarts the backend
 themselves. A plugin that's installed runs with the same access the
